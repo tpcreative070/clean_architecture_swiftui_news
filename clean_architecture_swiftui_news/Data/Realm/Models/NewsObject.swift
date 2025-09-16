@@ -22,7 +22,7 @@ final class NewsObject: Object {
     @Persisted var url: String?
     @Persisted var urlToImage: String?
     @Persisted var isFavorite: Bool = false
-    @Persisted var favoritedAt: Int?
+    @Persisted var favoritedAt: Int32?
     
     convenience init(_ news: NewsObject) {
         self.init()
