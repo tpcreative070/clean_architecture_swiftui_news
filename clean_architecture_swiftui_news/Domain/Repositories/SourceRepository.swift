@@ -4,13 +4,10 @@
 //
 //  Created by Tran Thanh Phong on 16/9/25.
 //
-
+import Foundation
 
 protocol SourceRepository {
     
-    func insertSources(sources: [Source])
+    func getSources() async throws -> [Source]
     
-    func getSources() -> [Source]
-    
-    func deleteAllSources()
 }

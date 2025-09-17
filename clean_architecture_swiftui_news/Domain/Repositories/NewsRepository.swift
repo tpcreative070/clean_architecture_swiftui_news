@@ -6,25 +6,11 @@
 //
 
 protocol NewsRepository {
+
+    func getTopHeadlines(countryCode : String) async throws -> News
     
-    func upsert(newArticle : News)
+    func searchNews(query : String, sources: String?) async throws -> News
     
-    func upsert(newArticles : [News])
-    
-    func getAllNews() -> [News]
-    
-    func getFavoriteNews() -> [News]
-    
-    func getArticleByUrl(articleUrl: String) -> News
-    
-    func getFavoriteArticleByUrl(articleUrl: String) -> News
-    
-    func feedPagingSource() -> [Int: News]
-    
-    func deleteNews(newsArticle: News)
-    
-    func deleteCachedArticles()
-    
-    func deleteAllNews()
+    func getNewsBySource(sourceId : String) async throws -> News
     
 }
