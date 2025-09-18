@@ -10,7 +10,7 @@ import Foundation
 final class NetworkService {
 
     private enum Constants {
-        static let movieBaseUrl = "https://react-midterm.kreosoft.space/api/"
+        static let movieBaseUrl = "https://newsapi.org/"
     }
 
     private let encoder = JSONEncoder()

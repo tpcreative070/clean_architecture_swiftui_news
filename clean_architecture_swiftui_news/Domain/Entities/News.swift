@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct News{
+struct News : Decodable{
     
     var id: String
     var author: String?
