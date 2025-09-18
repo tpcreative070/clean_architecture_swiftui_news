@@ -5,7 +5,7 @@
 //  Created by Tran Thanh Phong on 16/9/25.
 //
 
-struct Source {
+struct Source : Decodable {
     
     var id: String
     var name: String

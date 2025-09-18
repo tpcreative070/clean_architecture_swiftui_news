@@ -26,26 +26,16 @@ extension NewsRemoteDataSource {
         let config = NewsNetworkConfig.getNews(countryCode, pageNumber, pageSize, apkKey)
         return try await networkService.request(with: config)
     }
-//
-//    func fetchMoviesPagedList(page: Int) async throws -> MoviesPagedResponse {
-//        let config = MovieNetworkConfig.listByPage(page)
-//        return try await networkService.request(with: config)
-//    }
-//
-//    func addFavoriteMovie(movieId: String) async throws {
-//        let config = FavoriteMoviesNetworkConfig.add(movieId: movieId)
-//        try await networkService.request(with: config, useToken: true)
-//    }
-//
-//    func deleteFavoriteMovie(movieId: String) async throws {
-//        let config = FavoriteMoviesNetworkConfig.delete(movieId: movieId)
-//        try await networkService.request(with: config, useToken: true)
-//    }
-//
-//    func fetchFavoriteMovies() async throws -> MoviesResponse {
-//        let config = FavoriteMoviesNetworkConfig.list
-//        return try await networkService.request(with: config, useToken: true)
-//    }
-    
+
+    func searchNews(q : String,page : Int, pageSize : Int, apiKey : String,  sources : String) async throws -> NewsDTO {
+        let config = NewsNetworkConfig.searchNews(q, page, pageSize, apiKey, sources)
+        return try await networkService.request(with: config)
+    }
+
+    func getSources(apiKey: String) async throws -> SourcesDTO {
+        let config = NewsNetworkConfig.getSources(apiKey)
+        return try await networkService.request(with: config, useToken: true)
+    }
+
 
 }
