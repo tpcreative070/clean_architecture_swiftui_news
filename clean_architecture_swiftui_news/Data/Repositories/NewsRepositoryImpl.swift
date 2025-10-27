@@ -28,3 +28,27 @@ final class NewsRepositoryImpl : @unchecked Sendable {
     }
     
 }
+
+
+extension NewsRepositoryImpl : NewsRepository {
+    
+    
+    @RealmActor
+    func getTopHeadlines(countryCode: String) async throws -> News {
+        return News(id: "")
+    }
+    
+    @RealmActor
+    func searchNews(query: String, sources: String?) async throws -> News {
+        return News(id: "")
+        
+    }
+    
+    @RealmActor
+    func getNewsBySource(sourceId: String) async throws -> News {
+        
+        return News(id: "")
+    }
+    
+    
+}
