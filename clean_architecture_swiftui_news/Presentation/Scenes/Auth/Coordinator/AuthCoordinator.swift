@@ -15,6 +15,35 @@ final class AuthCoordinator : Coordinator {
     }
     
     @Published var navigationPath: [Screen] = [Screen]()
+    private let showMainScreenHandler: () -> Void
+    
+    init (showMainScreenHandler: @escaping () -> Void) {
+   
+        self.showMainScreenHandler = showMainScreenHandler
+    }
     
 }
 
+extension AuthCoordinator : AuthCoordinatorProtocol {
+    
+    
+    func showLogin() {
+        showMainScreenHandler()
+    }
+    
+    func showMainScene() {
+        updatePath()
+    }
+    
+}
+
+
+private extension AuthCoordinator {
+    
+    func updatePath(){
+        
+    }
+    
+    
+    
+}

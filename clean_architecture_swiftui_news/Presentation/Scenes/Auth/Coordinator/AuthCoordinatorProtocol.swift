@@ -6,7 +6,7 @@
 //
 
 @MainActor
-protocol AuthCoordinatorProtocols {
+protocol AuthCoordinatorProtocol {
     
     func showLogin()
     

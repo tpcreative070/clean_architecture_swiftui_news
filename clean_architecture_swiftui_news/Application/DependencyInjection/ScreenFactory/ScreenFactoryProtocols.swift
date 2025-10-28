@@ -44,3 +44,10 @@ protocol SourcesViewFactory {
      
     func makeSources(coordinator : SourcesCoordinatorProtocols) -> SourceView
 }
+
+
+@MainActor
+protocol AuthCoordinatorViewFactory {
+    
+    func makeAuth(coordinator : AuthCoordinatorProtocol) -> AuthCoordinatorView
+}

@@ -16,3 +16,5 @@ protocol HomeCoordinatorFactory : HomeViewFactory {}
 protocol NewsDetailsCoordinatorFactory : NewsDetailsViewFactory {}
 
 protocol SourcesCoordinatorFactory : SourcesViewFactory {}
+
+protocol AuthCoordinatorFactory : AuthCoordinatorViewFactory {}
