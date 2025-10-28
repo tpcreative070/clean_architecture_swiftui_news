@@ -9,7 +9,7 @@
 import Foundation
 
 @MainActor
-protocol FeedCoordinatorProtocols {
+protocol FeedCoordinatorProtocol {
     
     func showFeed()
     

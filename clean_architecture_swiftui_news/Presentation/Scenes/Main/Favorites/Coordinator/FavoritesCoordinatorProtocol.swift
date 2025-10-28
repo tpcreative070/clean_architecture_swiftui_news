@@ -1,5 +1,5 @@
 //
-//  SourceCoordinatorProtocols.swift
+//  FavoritesCoordinatorProtocols.swift
 //  clean_architecture_swiftui_news
 //
 //  Created by Tran Thanh Phong on 28/10/25.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-
-protocol SourcesCoordinatorProtocols {
+@MainActor
+protocol FavoritesCoordinatorProtocol {
     
+    func showFavorites()
     
-    func showSources()
 }

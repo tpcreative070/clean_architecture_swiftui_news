@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-protocol NewsDetailsCoordinatorProtocols {
+protocol NewsDetailsCoordinatorProtocol {
     
     
     func showNewsDetails()

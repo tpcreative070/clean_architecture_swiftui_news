@@ -10,7 +10,7 @@ import SwiftUI
 @MainActor
 protocol FavoritesViewFactory {
     
-    func makeFavoritesView(coordinator : FavoritesCoordinatorProtocols) -> FavoritesView
+    func makeFavoritesView(coordinator : FavoritesCoordinatorProtocol) -> FavoritesView
     
 }
 
@@ -18,7 +18,7 @@ protocol FavoritesViewFactory {
 @MainActor
 protocol FeedViewFactory {
     
-    func makeFeedView(coordinator : FeedCoordinatorProtocols) -> FeedView
+    func makeFeedView(coordinator : FeedCoordinatorProtocol) -> FeedView
     
 }
 
@@ -26,7 +26,7 @@ protocol FeedViewFactory {
 protocol HomeViewFactory {
     
     
-    func makeHomeView(coordinator : HomeCoordinatorProtocols) -> HomeView
+    func makeHomeView(coordinator : HomeCoordinatorProtocol) -> HomeView
     
 }
 
@@ -34,7 +34,7 @@ protocol HomeViewFactory {
 @MainActor
 protocol NewsDetailsViewFactory {
     
-    func makeNewsDetails(coordinator : NewsDetailsCoordinatorProtocols) -> NewsDetailsView
+    func makeNewsDetails(coordinator : NewsDetailsCoordinatorProtocol) -> NewsDetailsView
     
 }
 
@@ -42,12 +42,12 @@ protocol NewsDetailsViewFactory {
 protocol SourcesViewFactory {
     
      
-    func makeSources(coordinator : SourcesCoordinatorProtocols) -> SourceView
+    func makeSources(coordinator : SourcesCoordinatorProtocol) -> SourceView
 }
 
 
 @MainActor
 protocol AuthCoordinatorViewFactory {
     
-    func makeAuth(coordinator : AuthCoordinatorProtocol) -> AuthCoordinatorView
+    func makeAuthCoordinator(coordinator : AuthCoordinatorProtocol) -> AuthCoordinatorView
 }
