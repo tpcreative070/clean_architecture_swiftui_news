@@ -14,9 +14,12 @@ final class NewsDetailsViewModel : ViewModel {
     
     private let coordinator : NewsDetailsCoordinatorProtocol
     
-    init(state: NewsDetailsViewState, coordinator: NewsDetailsCoordinatorProtocol) {
-        self.state = state
+    private let fetchData : GetNewsBySourceUseCase
+    
+    init(coordinator: NewsDetailsCoordinatorProtocol, fetchData: GetNewsBySourceUseCase) {
+        self.state = .idle
         self.coordinator = coordinator
+        self.fetchData = fetchData
     }
     
     func handle(_ event: NewsDetailsViewEvent) {

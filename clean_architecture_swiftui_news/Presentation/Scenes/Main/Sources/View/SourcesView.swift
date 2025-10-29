@@ -9,12 +9,17 @@ import SwiftUI
 
 struct SourceView : View {
     
+    @StateObject private var viewModel : SourcesViewModel
+    
+    init(viewModel: SourcesViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         
     }
 }
 
-#Preview {
-    SourceView()
-}
+//#Preview {
+//   SourceView()
+//}

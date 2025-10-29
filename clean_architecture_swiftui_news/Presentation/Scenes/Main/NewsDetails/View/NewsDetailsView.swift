@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct NewsDetailsView : View {
+    @StateObject private var viewModel : NewsDetailsViewModel
+    
+    init(viewModel: NewsDetailsViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         
@@ -17,6 +22,6 @@ struct NewsDetailsView : View {
 }
 
 
-#Preview {
-    NewsDetailsView()
-}
+//#Preview {
+//    NewsDetailsView()
+//}

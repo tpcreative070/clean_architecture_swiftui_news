@@ -12,11 +12,13 @@ final class FavoritesViewModel : ViewModel {
     @Published private(set) var state : FavoritesViewState
     
     private let coordinator : FavoritesCoordinatorProtocol
+    private let fetchData : GetNewsBySourceUseCase
     
     
-    init(state: FavoritesViewState, coordinator: FavoritesCoordinatorProtocol) {
-        self.state = state
+    init(coordinator : FavoritesCoordinatorProtocol, fetchData: GetNewsBySourceUseCase) {
+        state = .idle
         self.coordinator = coordinator
+        self.fetchData = fetchData
     }
     
     

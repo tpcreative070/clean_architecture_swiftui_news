@@ -11,8 +11,23 @@ final class AppFactory {
     
     private lazy var keyChainService  = KeychainService()
     private lazy var  networkService  = NetworkService(keychainService: keyChainService)
+   
+    private lazy var newsRepository: NewsRepositoryImpl = {
+        let localDataSource = NewsLocalDataSource()
+        let remoteDataSource = NewsRemoteDataSource(networkService: networkService)
+
+        return NewsRepositoryImpl(localDataSource: localDataSource, remoteDataSource: remoteDataSource)
+    }()
     
    
-   
-    
 }
+
+
+//MARK: News
+extension AppFactory {
+    func makeGetNewsUseCase() -> GetNewsBySourceUseCase{
+        GetNewsBySourceUseCase(newRespository: newsRepository)
+    }
+}
+
+

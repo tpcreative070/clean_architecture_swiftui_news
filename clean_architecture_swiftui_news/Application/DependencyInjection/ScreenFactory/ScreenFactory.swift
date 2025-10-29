@@ -9,12 +9,12 @@ import SwiftUI
 
 final class ScreenFactory : FavoritesCoordinatorFactory,
                             FeedCoordinatorFactory,
-                            HomeCoordinatorFactory, NewsDetailsCoordinatorFactory, SourcesCoordinatorFactory,AuthCoordinatorFactory {
+                            HomeCoordinatorFactory, NewsDetailsCoordinatorFactory, SourcesCoordinatorFactory {
+  
    
     
     private let appFactory : AppFactory
-    
-    
+  
     init(appFactory: AppFactory) {
         self.appFactory = appFactory
     }
@@ -25,8 +25,17 @@ final class ScreenFactory : FavoritesCoordinatorFactory,
 
 extension ScreenFactory : FavoritesViewFactory {
     
-    func makeFavoritesView(coordinator: any FavoritesCoordinatorProtocol) -> FavoritesView {
+    func makeFavoritesView(coordinator:  FavoritesCoordinatorProtocol) -> FavoritesView {
         
+        let viewModel = FavoritesViewModel(
+            coordinator: coordinator,
+            fetchData: appFactory.makeGetNewsUseCase()
+        )
+        let view = FavoritesView(viewModel: viewModel)
+
+        return view
+        
+      
     }
     
     
@@ -36,7 +45,15 @@ extension ScreenFactory : FavoritesViewFactory {
 
 extension ScreenFactory : FeedViewFactory {
     
-    func makeFeedView(coordinator: any FeedCoordinatorProtocol) -> FeedView {
+    func makeFeedView(coordinator: FeedCoordinatorProtocol) -> FeedView {
+        
+        let viewModel = FeedViewModel(
+            coordinator: coordinator,
+            fetchData: appFactory.makeGetNewsUseCase()
+        )
+        let view = FeedView(viewModel: viewModel)
+
+        return view
         
     }
     
@@ -49,7 +66,15 @@ extension ScreenFactory : FeedViewFactory {
 
 extension ScreenFactory : HomeViewFactory {
     
-    func makeHomeView(coordinator: any HomeCoordinatorProtocol) -> HomeView {
+    func makeHomeView(coordinator:  HomeCoordinatorProtocol) -> HomeView {
+        
+        let viewModel = HomeViewModel(
+            coordinator: coordinator,
+            fetchData: appFactory.makeGetNewsUseCase()
+        )
+        let view = HomeView(viewModel: viewModel)
+
+        return view
         
     }
     
@@ -60,9 +85,15 @@ extension ScreenFactory : HomeViewFactory {
 
 extension ScreenFactory : NewsDetailsViewFactory {
     
-    func makeNewsDetails(coordinator: any NewsDetailsCoordinatorProtocol) -> NewsDetailsView {
+    func makeNewsDetails(coordinator:  NewsDetailsCoordinatorProtocol) -> NewsDetailsView {
         
-        
+        let viewModel = NewsDetailsViewModel(
+            coordinator: coordinator,
+            fetchData: appFactory.makeGetNewsUseCase()
+        )
+        let view = NewsDetailsView(viewModel: viewModel)
+
+        return view
         
     }
     
@@ -72,8 +103,14 @@ extension ScreenFactory : NewsDetailsViewFactory {
 
 extension ScreenFactory : SourcesViewFactory {
     
-    func makeSources(coordinator: any SourcesCoordinatorProtocol) -> SourceView {
-        
+    func makeSources(coordinator:  SourcesCoordinatorProtocol) -> SourceView {
+        let viewModel = SourcesViewModel(
+            coordinator: coordinator,
+            fetchData: appFactory.makeGetNewsUseCase()
+        )
+        let view = SourceView(viewModel: viewModel)
+
+        return view
     }
     
     
@@ -81,16 +118,12 @@ extension ScreenFactory : SourcesViewFactory {
 
 //MARK: AuthCoordinatorViewFactory
 
-extension ScreenFactory : AuthCoordinatorViewFactory {
-    func makeAuthCoordinator(coordinator: any AuthCoordinatorProtocol) -> AuthCoordinatorView {
-        
-    }
-    
-    
-}
-
-
-
-
+//extension ScreenFactory : AuthCoordinatorViewFactory {
+//    func makeAuthCoordinator(coordinator: AuthCoordinatorProtocol) -> AuthCoordinatorView {
+//
+//    }
+//    
+//    
+//}
 
 

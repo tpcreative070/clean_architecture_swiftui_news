@@ -12,9 +12,13 @@ final class HomeViewModel : ViewModel {
     
     private let coordinator : HomeCoordinatorProtocol
     
-    init(state: HomeViewState, coordinator: HomeCoordinatorProtocol) {
-        self.state = state
+    private let fetchData : GetNewsBySourceUseCase
+    
+   
+    init( coordinator: HomeCoordinatorProtocol, fetchData: GetNewsBySourceUseCase) {
+        self.state = .idle
         self.coordinator = coordinator
+        self.fetchData = fetchData
     }
     
     func handle(_ event: HomeViewEvent) {

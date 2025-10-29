@@ -9,6 +9,13 @@ import SwiftUI
 
 struct FavoritesView : View{
     
+    @StateObject private var viewModel : FavoritesViewModel
+    
+    init(viewModel: FavoritesViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+    
+    
     var body: some View {
         
         Button("button"){
@@ -18,7 +25,7 @@ struct FavoritesView : View{
     }
 }
 
-#Preview {
-    FavoritesView()
-}
+//#Preview {
+//    FavoritesView()
+//}
 

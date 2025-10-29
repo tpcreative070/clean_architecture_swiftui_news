@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct FeedView : View {
+    
+    @StateObject private var viewModel : FeedViewModel
+    
+    init(viewModel: FeedViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+    
+    
+    
     var body : some View {
         
     }
 }
 
-#Preview {
-    FeedView()
-}
+//#Preview {
+//    FeedView()
+//}
