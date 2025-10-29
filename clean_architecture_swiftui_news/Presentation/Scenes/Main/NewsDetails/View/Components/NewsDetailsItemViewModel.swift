@@ -5,7 +5,7 @@
 //  Created by Tran Thanh Phong on 28/10/25.
 //
 
-struct NewsDetailsViewModel : Identifiable, Equatable {
+struct NewsDetailsItemViewModel : Identifiable, Equatable {
     
     let id : String
 }
